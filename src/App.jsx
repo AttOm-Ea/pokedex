@@ -3,8 +3,16 @@ import Home from "./pages/Home"
 import Pokedex from "./pages/Pokedex"
 import ProtectedAuth from "./components/auth/ProtectedAuth"
 import PokemonId from "./pages/PokemonId"
+import { useDispatch } from "react-redux"
+import { setNameTrainer } from "./store/slices/nameTrainer.slice"
+import { BiPowerOff } from "react-icons/bi";
 
 function App() {
+  const dispatch = useDispatch();
+
+  function handleClickLogout() {
+    dispatch(setNameTrainer(""));
+  }
 
   return (
     <>
@@ -15,7 +23,7 @@ function App() {
                 </div>
                 <div className="h-full w-6/12 flex justify-center p-1"> <img className="h-full" src="./Img/pokeLogo.png" alt="logo" /> </div>
                 <div className="w-3/12 flex justify-evenly items-center "> 
-                    <div className="w-6 h-3 md:w-12 md:h-6 rounded-full bg-red-600 border-2 border-stone-300">  </div>
+                    <div onClick={handleClickLogout} className="w-6 h-3 md:w-12 md:h-6 rounded-full bg-red-600 border-2 border-stone-300 cursor-pointer flex justify-center items-center text-white"> <BiPowerOff/> </div>
                     <div className="w-6 h-3 md:w-12 md:h-6 rounded-full bg-yellow-400 border-2 border-stone-300">  </div>
                     <div className="w-6 h-3 md:w-12 md:h-6 rounded-full bg-green-600 border-2 border-stone-300">  </div>
                 </div>
