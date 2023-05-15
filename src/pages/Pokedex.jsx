@@ -60,9 +60,10 @@ const Pokedex = () => {
             setCurrentPage(newCurrentPage);
         }
     }
-    // useEffect(() => {
-    //     Swal.fire({ title: "Hello " + nameTrainer, text: " Find your favorite Pokemon!", icon: "success", timer: "4000", showConfirmButton: false});
-    // }, []);
+    
+    useEffect(() => {
+        Swal.fire({ title: "Hello " + nameTrainer, text: " Find your favorite Pokemon!", icon: "success", timer: "4000", showConfirmButton: false});
+    }, []);
 
     useEffect(() => {
         const URL = "https://pokeapi.co/api/v2/pokemon?limit=1281";
