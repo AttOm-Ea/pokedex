@@ -62,7 +62,11 @@ const Pokedex = () => {
     }
     
     useEffect(() => {
-        Swal.fire({ title: "Hello " + nameTrainer, text: " Find your favorite Pokemon!", icon: "success", timer: "4000", showConfirmButton: false});
+        const startAlert = localStorage.getItem('startAlert');
+        if (startAlert === "On") {
+            Swal.fire({ title: "Hello " + nameTrainer, text: " Find your favorite Pokemon!", icon: "success", timer: "4000", showConfirmButton: false});    
+            localStorage.setItem('startAlert', "off");
+        }
     }, []);
 
     useEffect(() => {
@@ -117,13 +121,13 @@ const Pokedex = () => {
                 </div>
             </form>    
             <ul className="w-full h-[7%] flex justify-center">
-                <li onClick={() => setCurrentPage(1)} className="text-3xl text-yellow-600 cursor-pointer flex justify-center items-center pr-2"> {"<<"} </li>
-                <li onClick={handleClickPreviusPage} className="text-3xl text-yellow-600 cursor-pointer flex justify-center items-center"> {"<"} </li>
+                <li onClick={() => setCurrentPage(1)} className="text-3xl text-yellow-600 cursor-pointer flex justify-center items-center py-2"> {"<<"} </li>
+                <li onClick={handleClickPreviusPage} className="text-3xl text-yellow-600 cursor-pointer flex justify-center items-center px-2"> {"<"} </li>
                 {
                     pagesInblock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`py-1 px-2 ${ numberPage == currentPage ? "bg-red-700" : "bg-yellow-600" } rounded-sm m-1 text-white cursor-pointer flex justify-center items-center`} key={numberPage}> {numberPage} </li>)
                 }
-                <li onClick={handleClickNextPage} className="text-3xl text-yellow-600 cursor-pointer flex justify-center items-center"> {">"} </li>
-                <li onClick={() => setCurrentPage(lastPage)} className="text-3xl text-yellow-600 cursor-pointer flex justify-center items-center pl-2"> {">>"} </li>
+                <li onClick={handleClickNextPage} className="text-3xl text-yellow-600 cursor-pointer flex justify-center items-center px-2"> {">"} </li>
+                <li onClick={() => setCurrentPage(lastPage)} className="text-3xl text-yellow-600 cursor-pointer flex justify-center items-center px-2"> {">>"} </li>
             </ul>
             <div className="h-[80%] w-full pb-2 px-4 overflow-auto flex flex-wrap">
                 

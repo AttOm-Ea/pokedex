@@ -34,7 +34,7 @@ const PokemonCard = ({urlPokemon, namePokemon}) => {
                 </div>
                 <div className={` w-full h-5/6 bg-gradient-to-b ${gradientByType[pokemon?.types[0].type.name]} from-15% via-40% to-40% to-white  rounded-br-lg rounded-bl-lg `}>
                     <div className="w-full h-4/6 flex justify-center items-center">
-                        <img className="max-w-full max-h-full" src={pokemon?.sprites.other["official-artwork"].front_default} alt="Pokemon"/>    
+                        <img className="max-w-full max-h-full" src={pokemon?.sprites.other["official-artwork"].front_default || "https://media.tenor.com/MMDa60lTwtIAAAAM/caught-pokemon.gif"} alt="Pokemon"/>    
                     </div>
                     <section className="h-2/6 flex flex-wrap overflow-auto">
                         {

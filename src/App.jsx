@@ -11,6 +11,7 @@ function App() {
   const dispatch = useDispatch();
 
   function handleClickLogout() {
+    localStorage.setItem('startAlert', "On");
     dispatch(setNameTrainer(""));
   }
 
@@ -21,9 +22,9 @@ function App() {
                 <div className="w-3/12 h-30 lg:h-44 flex justify-center items-center lg:border -ml-1 bg-red-900 border-b-black border-r-black border-l-red-900 border-t-transparent rounded-br-full"> 
                   <div className="w-16 h-16 md:w-32 md:h-32 rounded-full bg-blue-900 border-4 border-white"> </div>
                 </div>
-                <div className="h-full w-6/12 flex justify-center p-1"> <img className="h-full" src="./Img/pokeLogo.png" alt="logo" /> </div>
+                <div className="h-full w-6/12 flex justify-center items-center p-1"> <img className="h-[85%] lg:h-full" src="./Img/pokeLogo.png" alt="logo" /> </div>
                 <div className="w-3/12 flex justify-evenly items-center "> 
-                    <div onClick={handleClickLogout} className="w-6 h-3 md:w-12 md:h-6 rounded-full bg-red-600 border-2 border-stone-300 cursor-pointer flex justify-center items-center text-white"> <BiPowerOff/> </div>
+                    <div onClick={handleClickLogout} className="w-6 h-3 md:w-12 md:h-6 rounded-full bg-red-600 border-2 border-stone-300 cursor-pointer flex justify-center items-center text-white text-xs lg:text-base"> <BiPowerOff/> </div>
                     <div className="w-6 h-3 md:w-12 md:h-6 rounded-full bg-yellow-400 border-2 border-stone-300">  </div>
                     <div className="w-6 h-3 md:w-12 md:h-6 rounded-full bg-green-600 border-2 border-stone-300">  </div>
                 </div>

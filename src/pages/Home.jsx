@@ -10,6 +10,7 @@ function Home() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        localStorage.setItem('startAlert', "On");
         dispatch(setNameTrainer(e.target.nameTrainer.value));
         navigate("/Pokedex")
     }
@@ -17,14 +18,14 @@ function Home() {
     return (
         <section className='w-full h-full flex flex-col justify-center items-center bg-red-900/90'>
             <div className='h-3/6 w-full flex items-center mt-10'>
-                <div className='h-full w-28 flex justify-center items-center'>
+                <div className='h-full w-3/12 md:w-28 flex justify-center items-center'>
                     <div className="w-0 h-0 border-t-[25px] md:border-t-[50px] border-t-transparent border-l-[50px] md:border-l-[100px] border-l-yellow-600 border-b-[25px] md:border-b-[50px] border-b-transparent rounded-full"> </div>
                 </div>
-                <div className='w-11/12 flex flex-col justify-center items-center pr-28'>
+                <div className='w-9/12 md:w-11/12 flex flex-col justify-center items-center pr-14 md:pr-28'>
                     <h2 className='text-yellow-400 font-Righteous text-3xl md:text-6xl'> Hello Trainer! </h2>
-                    <p className='font-Instrument text-xs md:text-base '> Enter your nickname to get started... </p>
-                    <form action="" className='border flex' onSubmit={handleSubmit}>
-                        <input id="nameTrainer" className='md:p-2 text-blue-700' type="text" placeholder='Your Nickname'/>
+                    <p className='font-Instrument text-xs md:text-base mb-2 md:mb-0'> Enter your nickname to get started... </p>
+                    <form action="" className='border flex mb-2 md:mb-0' onSubmit={handleSubmit}>
+                        <input id="nameTrainer" className='md:p-2 text-blue-700 outline-0' type="text" placeholder='Your Nickname'/>
                         <button className='bg-blue-600 hover:bg-blue-800 md:p-2 text-white'> Start </button>
                     </form>
                     <div className='h-28'>
